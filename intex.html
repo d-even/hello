@@ -1,0 +1,61 @@
+<html>
+<head>
+<title> project4 </title>
+<style>
+	*{font-size:50px;font-family:Gabriola;}
+</style>
+<script>
+function show()
+	{
+	event.preventDefault();
+	let name=document.getElementById("name");
+	if (name.value == "")
+	{
+	alert("Please enter your name");
+	name.focus();
+	ans.innerHTML ="";
+	return;
+	}
+	else if (name.value.trim() =="")
+	{
+	alert("Name should not be in spaces");
+	name.value="";
+	name.focus();
+	ans.innerHTML="";
+	return;
+	}
+	else if (! name.value.match(/^[A-za-z]+$/))
+	{
+	alert("Name Only contain alphabets");
+	name.value="";
+	ans.innerHTML="";
+	name.focus();
+	return;
+	}
+	
+	let ans=document.getElementById("ans");
+	let d=new Date();
+	let hr=d.getHours();
+	let msg="";
+	if(hr<12)		msg="Good morning";
+	else if(hr<16)	msg="Good Afternoon";
+	else 		msg="Good Evening";
+	ans.innerHTML=msg+" "+name.value;
+	}
+
+</script>
+</head>
+<body>
+<center>
+	<h1> Welcome </h1>
+	<form onsubmit="show()">
+	<input type="text" placeholder="Enter Your name" id="name"/>
+	<br><br>
+	<input type="submit"
+	style="background-color:red;color:white;"
+	value="Welcome"/>
+	</form>
+<h1 id="ans"></h1>
+</center>
+</body>
+</html>
